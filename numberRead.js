@@ -38,7 +38,7 @@ module.exports = class NumberRead {
         return result;
     }
 
-    static speak(number) {
+    static read(number) {
         let result = "";
         let temp = "";
         let count = 0;
