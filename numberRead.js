@@ -37,8 +37,10 @@ module.exports = class NumberRead {
         }
         return result;
     }
-
-    static read(number) {
+    // option=1 uppercase
+    // option=2 lowercase
+    // option=3 initcap
+    static read(number, option="uppercase") {
         let result = "";
         let temp = "";
         let count = 0;
@@ -54,6 +56,17 @@ module.exports = class NumberRead {
                 temp = "";
             }
         }
+
+        if (option=="lowercase") {
+            result = result.toLowerCase();
+        }else if (option=="initcap") {
+            let arrResult = result.split(" ");
+            for (let index = 0; index < arrResult.length; index++) {
+                arrResult[index] = arrResult[index].charAt(0).toUpperCase() + arrResult[index].slice(1).toLowerCase();
+            }
+            result = arrResult.join(" ");
+        }
         return result;
     }
+      
   }
